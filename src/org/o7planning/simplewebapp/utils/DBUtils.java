@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
- 
-import org.o7planning.simplewebapp.beans.Product;
-import org.o7planning.simplewebapp.beans.UserAccount;
+
+import org.quill.simplewebapp.beans.Product;
+import org.quill.simplewebapp.beans.UserAccount;
  
 public class DBUtils {
  

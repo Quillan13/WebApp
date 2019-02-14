@@ -7,8 +7,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
- 
-import org.o7planning.simplewebapp.beans.UserAccount;
+
+import org.quill.simplewebapp.beans.UserAccount;
  
 public class MyUtils {
  

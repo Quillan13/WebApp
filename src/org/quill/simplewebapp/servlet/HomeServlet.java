@@ -1,4 +1,4 @@
-package org.o7planning.simplewebapp.servlet;
+package org.quill.simplewebapp.servlet;
  
 import java.io.IOException;
  

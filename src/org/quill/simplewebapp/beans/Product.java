@@ -1,4 +1,4 @@
-package org.o7planning.simplewebapp.beans;
+package org.quill.simplewebapp.beans;
  
 public class Product {
  

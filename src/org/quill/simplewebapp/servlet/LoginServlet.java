@@ -1,4 +1,4 @@
-package org.o7planning.simplewebapp.servlet;
+package org.quill.simplewebapp.servlet;
  
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
- 
-import org.o7planning.simplewebapp.beans.UserAccount;
+
 import org.o7planning.simplewebapp.utils.DBUtils;
 import org.o7planning.simplewebapp.utils.MyUtils;
+import org.quill.simplewebapp.beans.UserAccount;
  
 @WebServlet(urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet {

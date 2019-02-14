@@ -1,4 +1,4 @@
-package org.o7planning.simplewebapp.filter;
+package org.quill.simplewebapp.filter;
  
 import java.io.IOException;
 import java.sql.Connection;
@@ -15,8 +15,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import org.o7planning.simplewebapp.conn.ConnectionUtils;
 import org.o7planning.simplewebapp.utils.MyUtils;
+import org.quill.simplewebapp.conn.ConnectionUtils;
  
 @WebFilter(filterName = "jdbcFilter", urlPatterns = { "/*" })
 public class JDBCFilter implements Filter {
