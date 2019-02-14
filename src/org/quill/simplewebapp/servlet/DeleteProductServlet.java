@@ -10,9 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
-import org.o7planning.simplewebapp.utils.DBUtils;
-import org.o7planning.simplewebapp.utils.MyUtils;
+
+import org.quill.simplewebapp.utils.DBUtils;
+import org.quill.simplewebapp.utils.MyUtils;
  
 @WebServlet(urlPatterns = { "/deleteProduct" })
 public class DeleteProductServlet extends HttpServlet {

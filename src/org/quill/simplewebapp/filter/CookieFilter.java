@@ -14,9 +14,9 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.o7planning.simplewebapp.utils.DBUtils;
-import org.o7planning.simplewebapp.utils.MyUtils;
 import org.quill.simplewebapp.beans.UserAccount;
+import org.quill.simplewebapp.utils.DBUtils;
+import org.quill.simplewebapp.utils.MyUtils;
  
 @WebFilter(filterName = "cookieFilter", urlPatterns = { "/*" })
 public class CookieFilter implements Filter {

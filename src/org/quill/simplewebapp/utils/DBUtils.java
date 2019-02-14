@@ -1,4 +1,4 @@
-package org.o7planning.simplewebapp.utils;
+package org.quill.simplewebapp.utils;
  
 import java.sql.Connection;
 import java.sql.PreparedStatement;

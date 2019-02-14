@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.o7planning.simplewebapp.utils.DBUtils;
-import org.o7planning.simplewebapp.utils.MyUtils;
 import org.quill.simplewebapp.beans.Product;
+import org.quill.simplewebapp.utils.DBUtils;
+import org.quill.simplewebapp.utils.MyUtils;
  
 @WebServlet(urlPatterns = { "/productList" })
 public class ProductListServlet extends HttpServlet {
