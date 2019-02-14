@@ -1,4 +1,4 @@
-package org.o7planning.simplewebapp.filter;
+package org.quill.simplewebapp.filter;
  
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,10 +13,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
- 
-import org.o7planning.simplewebapp.beans.UserAccount;
+
 import org.o7planning.simplewebapp.utils.DBUtils;
 import org.o7planning.simplewebapp.utils.MyUtils;
+import org.quill.simplewebapp.beans.UserAccount;
  
 @WebFilter(filterName = "cookieFilter", urlPatterns = { "/*" })
 public class CookieFilter implements Filter {

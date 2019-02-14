@@ -1,4 +1,4 @@
-package org.o7planning.simplewebapp.conn;
+package org.quill.simplewebapp.conn;
  
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,10 +9,10 @@ public class MySQLConnUtils {
  public static Connection getMySQLConnection()
          throws ClassNotFoundException, SQLException {
      // Note: Change the connection parameters accordingly.
-     String hostName = "localhost";
-     String dbName = "WebApp";
-     String userName = "root";
-     String password = "12345";
+     String hostName = "172.21.2.34";
+     String dbName = "quillanogle";
+     String userName = "quillanogle";
+     String password = "v4hpSGpmL4TJqn5Q";
      return getMySQLConnection(hostName, dbName, userName, password);
  }
   

@@ -1,4 +1,4 @@
-package org.o7planning.simplewebapp.conn;
+package org.quill.simplewebapp.conn;
  
 import java.sql.Connection;
 import java.sql.DriverManager;

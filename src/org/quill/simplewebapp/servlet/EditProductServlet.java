@@ -1,4 +1,4 @@
-package org.o7planning.simplewebapp.servlet;
+package org.quill.simplewebapp.servlet;
  
 import java.io.IOException;
 import java.sql.Connection;
@@ -10,31 +10,58 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
-import org.o7planning.simplewebapp.beans.Product;
+
 import org.o7planning.simplewebapp.utils.DBUtils;
 import org.o7planning.simplewebapp.utils.MyUtils;
+import org.quill.simplewebapp.beans.Product;
  
-@WebServlet(urlPatterns = { "/createProduct" })
-public class CreateProductServlet extends HttpServlet {
+@WebServlet(urlPatterns = { "/editProduct" })
+public class EditProductServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
-    public CreateProductServlet() {
+    public EditProductServlet() {
         super();
     }
  
-    // Show product creation page.
+    // Show product edit page.
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Connection conn = MyUtils.getStoredConnection(request);
+ 
+        String code = (String) request.getParameter("code");
+ 
+        Product product = null;
+ 
+        String errorString = null;
+ 
+        try {
+            product = DBUtils.findProduct(conn, code);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            errorString = e.getMessage();
+        }
+ 
+        // If no error.
+        // The product does not exist to edit.
+        // Redirect to productList page.
+        if (errorString != null && product == null) {
+            response.sendRedirect(request.getServletPath() + "/productList");
+            return;
+        }
+ 
+        // Store errorString in request attribute, before forward to views.
+        request.setAttribute("errorString", errorString);
+        request.setAttribute("product", product);
  
         RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/WEB-INF/views/createProductView.jsp");
+                .getRequestDispatcher("/WEB-INF/views/editProductView.jsp");
         dispatcher.forward(request, response);
+ 
     }
  
-    // When the user enters the product information, and click Submit.
-    // This method will be called.
+    // After the user modifies the product information, and click Submit.
+    // This method will be executed.
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,23 +79,12 @@ public class CreateProductServlet extends HttpServlet {
  
         String errorString = null;
  
-        // Product ID is the string literal [a-zA-Z_0-9]
-        // with at least 1 character
-        String regex = "\\w+";
- 
-        if (code == null || !code.matches(regex)) {
-            errorString = "Product Code invalid!";
+        try {
+            DBUtils.updateProduct(conn, product);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            errorString = e.getMessage();
         }
- 
-        if (errorString == null) {
-            try {
-                DBUtils.insertProduct(conn, product);
-            } catch (SQLException e) {
-                e.printStackTrace();
-                errorString = e.getMessage();
-            }
-        }
- 
         // Store infomation to request attribute, before forward to views.
         request.setAttribute("errorString", errorString);
         request.setAttribute("product", product);
@@ -76,7 +92,7 @@ public class CreateProductServlet extends HttpServlet {
         // If error, forward to Edit page.
         if (errorString != null) {
             RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/WEB-INF/views/createProductView.jsp");
+                    .getRequestDispatcher("/WEB-INF/views/editProductView.jsp");
             dispatcher.forward(request, response);
         }
         // If everything nice.
