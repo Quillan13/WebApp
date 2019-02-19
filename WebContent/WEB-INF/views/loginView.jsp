@@ -37,8 +37,7 @@
 		</table>
 	</form>
 
-	<p style="color: blue;">User Name: tom, password: tom001 or
-		jerry/jerry001</p>
+	<a href="${pageContext.request.contextPath}/createUser">Register</a>
 
 	<jsp:include page="_footer.jsp"></jsp:include>
 </body>
