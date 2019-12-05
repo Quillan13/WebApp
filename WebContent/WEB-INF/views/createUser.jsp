@@ -26,11 +26,12 @@
 			</tr>
 			<tr>
 				<td>Gender</td>
-				<td><input type="text" name="gender" value="${userAccount.gender}" /></td>
+				<td><input type="radio" name="gender" value="M" />Male</td>
+				<td><input type="radio" name="gender" value="F" />Female</td>
 			</tr>
 			<tr>
 				<td>Password</td>
-				<td><input type="text" name="password" value="${userAccount.password}" /></td>
+				<td><input type="password" name="password" value="${userAccount.password}" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Submit" /> <a
