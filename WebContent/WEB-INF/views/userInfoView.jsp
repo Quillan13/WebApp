@@ -15,7 +15,7 @@
 
 	User Name:
 	<b>${user.userName}</b>
-	<!--  <br /> Gender: ${user.gender }  -->
+	<br /> Gender: ${user.gender }
 	<br />
 
 	<jsp:include page="_footer.jsp"></jsp:include>
